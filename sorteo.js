@@ -1,8 +1,8 @@
 const d = document;
 
 d.addEventListener("DOMContentLoaded", () => {
-    sorteoDos('sorteo-dos', 'agregar-jugador', 'ganador-btn-dos','lista-jugadores');
-  });
+  sorteoDos('sorteo-dos', 'agregar-jugador', 'ganador-btn-dos', 'lista-jugadores');
+});
 
 function sorteoDos(input, agregar, ganador, jugadores) { //agregamos 
   const $input = document.getElementById(input), //$ indica que estas trabajando en una etiqueta HTML
@@ -21,12 +21,12 @@ function sorteoDos(input, agregar, ganador, jugadores) { //agregamos
       $jugadores.insertAdjacentHTML("beforeend", `<li>${inputValue}</li>`);
       $input.value = '';
     }
-   };
-  const ganadorSorteo = () => { 
+  };
+  const ganadorSorteo = () => {
     $input.focus();
 
-    const random = Math.floor(Math.random() * 
-    
+    const random = Math.floor(Math.random() *
+
       jugadoresArray.length)
     const jugadorGanador = jugadoresArray[random];
 
@@ -36,12 +36,12 @@ function sorteoDos(input, agregar, ganador, jugadores) { //agregamos
       $jugadores.innerHTML = "";
     }, 2000);
 
-    Swal.fire(`${jugadorGanador} fue seleccionado`);
+    alert(`${jugadorGanador} fue seleccionado`);
   };
 
   $agregar.addEventListener('click', () => {
     agregarJugadores()
-   });
+  });
   $ganador.addEventListener('click', () => {
     if (jugadoresArray.length === 0) {
       alert('No has ingresado participantes');
